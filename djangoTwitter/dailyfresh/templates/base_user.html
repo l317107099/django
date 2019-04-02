@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
+
+
 {% block body %}
 	<div class="header_con">
 		<div class="header">
@@ -30,15 +32,17 @@
 		</div>
 	</div>
 
+
     <div class="search_bar clearfix">
 		<a href="index.html" class="logo fl"><img src="{% static '/images/logo.png' %}"></a>
 		<div class="sub_page_name fl">|&nbsp;&nbsp;&nbsp;&nbsp;用户中心</div>
-		<div class="search_con fr">
-			<input type="text" class="input_text fl" name="" placeholder="搜索商品">
-			<input type="button" class="input_btn fr" name="" value="搜索">
-		</div>
-	</div>
+            <div class="search_con fr">
+                <input type="text" class="input_text fl" name="" placeholder="搜索商品">
+                <input type="button" class="input_btn fr" name="" value="搜索">
+            </div>
+    </div>
 
+     {% block main %}{% endblock %}
     <div class="main_con clearfix">
 		<div class="left_menu_con clearfix">
 			<h3>用户中心</h3>
@@ -49,6 +53,5 @@
 			</ul>
 		</div>
 
-    {% block main %}{% endblock %}
-
+    </div>
 {% endblock %}

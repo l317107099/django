@@ -3,5 +3,6 @@ from . import views
 
 urlpatterns = [
 
-    url(r'^$',views.index,name='index')
+    url(r'index/$',views.IndexView.as_view(),name='index'),
+    url(r'detail/(?P<goods_id>\d+)$',views.DetailView.as_view(),name='detail')
 ]

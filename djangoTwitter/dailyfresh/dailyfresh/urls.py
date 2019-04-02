@@ -21,5 +21,7 @@ from django.urls import path
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^user/',include(('user.urls','user'),namespace='user')),
-    url(r'^',include(('goods.urls','goods'),namespace='goods'))
+    url(r'^',include(('goods.urls','goods'),namespace='goods')),
+    # url(r'^',include(('goods.urls','order'),namespace='order')),
+    # url(r'^',include(('goods.urls','cart'),namespace='cart')),
 ]

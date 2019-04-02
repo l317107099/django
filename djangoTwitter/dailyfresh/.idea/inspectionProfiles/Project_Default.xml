@@ -7,6 +7,9 @@
           <option value="apps.user.views.user" />
           <option value="apps.user.views.User" />
           <option value="apps.user.views.*" />
+          <option value="apps.goods.admin.goods" />
+          <option value="celery_tasks.tasks.goos" />
+          <option value="celery_tasks.tasks.django_redis" />
         </list>
       </option>
     </inspection_tool>

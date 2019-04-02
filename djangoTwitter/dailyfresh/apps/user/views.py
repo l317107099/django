@@ -225,6 +225,7 @@ class userInfoView(LoginRequiredMixin,View):
     def get(self,request):
         "request.user.is_authenticated()"
         user=request.user
+        # 地址通用
         user_message=Address.objects.get_default_address(user)
 
         con=get_redis_connection('default')

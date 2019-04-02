@@ -169,3 +169,14 @@ EMAIL_HOST_USER = 'l17328181904@163.com'
 EMAIL_HOST_PASSWORD = 'l17328181904'
 # 收件人看到的发件人
 EMAIL_FROM = '天天生鲜<l17328181904@163.com>'
+
+# 设置Django的文件存储类p
+DEFAULT_FILE_STORAGE='utils.fdfs.storage.FDFSStorage'
+
+# 设置fdfs使用的client.conf文件路径
+# FDFS_CLIENT_CONF='./utils/fdfs/client.conf'
+
+# 设置fdfs存储服务器上nginx的IP和端口号
+FDFS_URL='http://www.520xqy.com:8888/'
+
+FDFS_CLIENT_CONF='./utils/fdfs/client.conf'
