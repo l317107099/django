@@ -9,7 +9,7 @@ from django_redis import get_redis_connection
 
 class IndexView(View):
     '''首页'''
-    def get(self, request):
+    def get(self,request):
         '''显示首页'''
         # 尝试从缓存中获取数据
         # return render(request,'index.html')
@@ -47,18 +47,18 @@ class IndexView(View):
             cache.set('index_page_data', context, 3600)
 
         # 获取用户购物车中商品的数目
-            user = request.user
-            cart_count = 0
-            if user.is_authenticated():
-                # 用户已登录
-                conn = get_redis_connection('default')
-                cart_key = 'cart_%d'%user.id
-                cart_count = conn.hlen(cart_key)
+        user = request.user
+        cart_count = 0
+        if user.is_authenticated:
+            # 用户已登录
+            conn = get_redis_connection('default')
+            cart_key = 'cart_%d' % user.id
+            cart_count = conn.hlen(cart_key)
 
-            # 组织模板上下文
-            context.update(cart_count=cart_count)
+        # 组织模板上下文
+        context.update(cart_count=cart_count)
 
-            # 使用模板
+        # 使用模板
         return render(request, 'index.html', context)
 
 
