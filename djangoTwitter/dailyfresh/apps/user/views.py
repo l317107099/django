@@ -237,6 +237,7 @@ class userInfoView(LoginRequiredMixin,View):
             sku_list.append(goods)
 
         context = {
+                    'page':'user',
                    'message':user_message,
                    'goods_li': sku_list}
 

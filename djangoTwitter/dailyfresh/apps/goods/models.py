@@ -51,7 +51,7 @@ class Goods(BaseModel):
 
     class Meta:
         db_table = 'df_goods'
-        verbose_name = '商品SPU'
+        verbose_name = '商品SPU(规格)'
         verbose_name_plural = verbose_name
 
 

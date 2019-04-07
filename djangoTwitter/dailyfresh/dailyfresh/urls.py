@@ -24,4 +24,6 @@ urlpatterns = [
     url(r'^',include(('goods.urls','goods'),namespace='goods')),
     # url(r'^',include(('goods.urls','order'),namespace='order')),
     # url(r'^',include(('goods.urls','cart'),namespace='cart')),
+    url(r'^cart/',include(('cart.urls','cart'), namespace='cart')),
+    url(r'^search/',include('haystack.urls')),
 ]

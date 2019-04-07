@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'user',
     'goods',
+    'haystack',
+    'cart',
 ]
 
 MIDDLEWARE = [
@@ -144,7 +146,7 @@ TINYMCE_DEFAULT_CONFIG = {
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://127.0.0.1/9",
+        "LOCATION": "redis://127.0.0.1:6379/9",
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }
@@ -180,3 +182,15 @@ DEFAULT_FILE_STORAGE='utils.fdfs.storage.FDFSStorage'
 FDFS_URL='http://www.520xqy.com:8888/'
 
 FDFS_CLIENT_CONF='./utils/fdfs/client.conf'
+
+HAYSTACK_CONNECTIONS = {
+    'default' : {
+        # 'ENGINE' : 'haystack.backends.whoosh_backend.WhooshEngine',
+        'ENGINE': 'haystack.backends.whoosh_cn_backend.WhooshEngine',
+        'PATH':os.path.join(BASE_DIR,'whoosh_index'),
+
+
+    }
+}
+
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'

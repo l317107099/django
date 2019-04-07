@@ -14,12 +14,12 @@
 		</div>
 		<div class="guest_cart fr">
 			<a href="#" class="cart_name fl">我的购物车</a>
-			<div class="goods_count fl" id="show_count">1</div>
+			<div class="goods_count fl" id="show_count">{{ cart_count }}</div>
 		</div>
 	</div>
 
 
-{% block main %}
+{% block bottom %}
 	<div class="navbar_con">
 		<div class="navbar">
 			<h1 class="fl">全部商品分类</h1>
@@ -37,7 +37,9 @@
 	<div class="center_con clearfix">
 		<ul class="subnav fl">
             {% for type in types %}
-			<li><a href="#model0{{ forloop.counter }}" class="{{ type.logo }}">{{ type.name }}</a></li>
+			<li>
+                <a href="#model0{{ forloop.counter }}" class="{{ type.logo }}">{{ type.name }}</a>
+            </li>
             {% endfor %}
 		</ul>
 		<div class="slide fl">
@@ -60,12 +62,11 @@
     {% for type in types %}
 	<div class="list_model">
 		<div class="list_title clearfix">
-			<h3 class="fl" id="model0{{ forloop.counter }}">{{ banner.sku.name }}</h3>
+			<h3 class="fl" id="model0{{ forloop.counter }}">{{ type.name }}</h3>
 			<div class="subtitle fl">
 				<span>|</span>
-                {% for banner in type.title_banner %}
-				<a href="{% url 'goods:detail' banner.sku.id %}">{{ banner.sku.name }}</a>
-
+                {% for banner in type.title_banners %}
+				    <a href="{% url 'goods:detail' banner.sku.id %}">{{ banner.sku.name }}</a>
                 {% endfor %}
 			</div>
 			<a href="#" class="goods_more fr" id="fruit_more">查看更多 ></a>
@@ -86,7 +87,6 @@
             </div>
         </div>
     {% endfor %}
-
-    {% endblock %}
+{% endblock %}
 
 {% endblock %}

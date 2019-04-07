@@ -1,5 +1,5 @@
 from django.contrib import admin
-from goods.models import IndexGoodsBanner,IndexTypeGoodsBanner,IndexPromotionBanner,GoodsType
+from goods.models import IndexGoodsBanner,IndexTypeGoodsBanner,IndexPromotionBanner,GoodsType,GoodsSKU,Goods
 # Register your models here.
 class BaseAdmin(admin.ModelAdmin):
     def save_model(self, request, obj, form, change):
@@ -23,7 +23,14 @@ class IndexGoodsAdmin(BaseAdmin):
 class IndexPromotionsAdmin(BaseAdmin):
     pass
 
+class GoodsSKUAdmin(BaseAdmin):
+    pass
+
+class GoodsAdmin(BaseAdmin):
+    pass
 admin.site.register(GoodsType,GoodsTypeAdmin)
 admin.site.register(IndexGoodsBanner,IndexGoodsAdmin)
 admin.site.register(IndexTypeGoodsBanner,IndexTypesAdmin)
 admin.site.register(IndexPromotionBanner,IndexPromotionsAdmin)
+admin.site.register(GoodsSKU,GoodsSKUAdmin)
+admin.site.register(Goods,GoodsAdmin)
