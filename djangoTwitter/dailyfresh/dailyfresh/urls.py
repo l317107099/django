@@ -13,17 +13,30 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls import include, url
 from django.contrib import admin
-from django.conf.urls import include,url
 from django.urls import path
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    url(r'^user/',include(('user.urls','user'),namespace='user')),
-    url(r'^',include(('goods.urls','goods'),namespace='goods')),
-    # url(r'^',include(('goods.urls','order'),namespace='order')),
-    # url(r'^',include(('goods.urls','cart'),namespace='cart')),
-    url(r'^cart/',include(('cart.urls','cart'), namespace='cart')),
-    url(r'^search/',include('haystack.urls')),
+    path(r'admin/', admin.site.urls),
+    url(r'^tinymce/', include('tinymce.urls')), # 富文本编辑器
+    url(r'^search', include('haystack.urls')), # 全文检索框架
+    url(r'^user/', include(('user.urls','user'), namespace='user')), # 用户模块
+    url(r'^cart/', include(('cart.urls','cart'), namespace='cart')), # 购物车模块
+    url(r'^order/', include(('order.urls','order'), namespace='order')), # 订单模块
+    url(r'^', include(('goods.urls','goods'), namespace='goods')),
+    # 商品模块
 ]
+
+
+
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+#     url(r'^user/',include(('user.urls','user'),namespace='user')),
+#     url(r'^',include(('goods.urls','goods'),namespace='goods')),
+#     # url(r'^',include(('goods.urls','order'),namespace='order')),
+#     # url(r'^',include(('goods.urls','cart'),namespace='cart')),
+#     url(r'^cart/',include(('cart.urls','cart'), namespace='cart')),
+#     url(r'^search/',include('haystack.urls')),
+# ]
